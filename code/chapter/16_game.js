@@ -11,7 +11,12 @@ var simpleLevelPlan = `
 
 
 
-async function runGame(plans, Display) {
+async function runGame ( plans, Display )
+{
+  document.getElementById("reset").addEventListener("click", () => { document.location.reload(); })
+    document.getElementById("pause").addEventListener("click", () => { this.paused; })
+    this.livesView = document.getElementById("lives");
+    this.levelView = document.getElementById("level");
   let lives = 3;
   this.livesView = document.getElementById( "vidas" );
   this.titul = document.getElementById( "titul" );
@@ -28,17 +33,12 @@ async function runGame(plans, Display) {
       this.livesView.innerHTML =  + lives;
     }
   }
-
+  this.butonpauseview = document.getElementById("pause");
+  this.butonreload = document.getElementById("reset");
   this.mensajefinal = document.getElementById("MensajeFinal");
   console.log(this.mensajefinal)
-  this.cora=document.getElementById("cor");
-
-  document.getElementById("reset").addEventListener("click", () => { document.location.reload(); })
-  document.getElementById("pause").addEventListener("click", () => { this.paused; })
-  this.livesView = document.getElementById("lives");
-  this.levelView = document.getElementById("level");
-
-
+  this.cora = document.getElementById( "cor" );
+  
   if (lives > 0) {
     console.log( "You Win!" );
     this.livesView.style.display = "none";
@@ -46,6 +46,8 @@ async function runGame(plans, Display) {
     this.cora.style.display = "none";
     this.levelview.style.display = "none";
     this.titul.style.display = "none";
+    this.butonpauseview.style.display = "none";
+    this.butonreload.style.display = "none";
     this.mensajefinal.innerHTML = "You Win!";
     
     setTimeout(() => {
@@ -59,11 +61,17 @@ async function runGame(plans, Display) {
     this.cora.style.display = "none";
     this.levelview.style.display = "none";
     this.titul.style.display = "none";
+    this.butonpauseview.style.display = "none";
+    this.butonreload.style.display = "none";
     this.mensajefinal.innerHTML = "You Dead!";
     setTimeout(() => {
       document.location.reload();
     } , 5000);
   }
+  document.getElementById("reset").addEventListener("click", () => { document.location.reload(); })
+  document.getElementById("pause").addEventListener("click", () => { this.paused; })
+  this.livesView = document.getElementById("lives");
+  this.levelView = document.getElementById("level");
 
 }
 

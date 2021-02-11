@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0%;
+}
+
 .background {
   background-image: url(blackdragon.jpg);
   background-repeat: no-repeat;
@@ -94,10 +99,9 @@
   width: 40px;
   height: 40px;
   position: absolute;
-  
 }
-.level{
-   list-style-type: none;
+.level {
+  list-style-type: none;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   text-transform: uppercase;
@@ -108,8 +112,8 @@
   padding-left: 10px;
   margin-top: 35px;
 }
-.titulo{
-   list-style-type: none;
+.titulo {
+  list-style-type: none;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   text-transform: uppercase;
@@ -121,21 +125,47 @@
   text-align: center;
   margin-top: 40px;
 }
-.wgame{
+.wgame {
   height: 100%;
   width: 100%;
   position: absolute;
   overflow: hidden;
   z-index: -2;
 }
-.vsc-initialized{
-  top:1px;
+.vsc-initialized {
+  top: 1px;
 }
-.reset{
-  right: 100px;
-  left: 200px;
-
+.reset {
+  background-image: url(reload-white.jpg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 40px;
+  width: 40px;
+  position: left;
+  text-align-last: top;
+  z-index: 10;
+  position: absolute;
+  text-align: left;
+  right: 80px;
+  margin-top: 10px;
+  border: 0;
 }
-.pausar{
-
+.pausar {
+  background-color: transparent;
+  background-image: url(play-pause-white.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 0;
+  position: left;
+  height: 40px;
+  width: 40px;
+  text-align-last: top;
+  z-index: 10;
+  position: absolute;
+  text-align: left;
+  right: 25px;
+  margin-top: 10px;
 }
