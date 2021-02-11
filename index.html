@@ -3,27 +3,41 @@
 <script src="code/levels.js"></script>
 
 <link rel="stylesheet" href="css/game.css" />
-
+<div></div>
 <body>
   <div class="wgame" id="wgame">
-  <h1 class="titulo" id="titul" style="display: block">JBG-Game V.1</h1>
+    <h1 class="titulo" id="titul" style="display: block">JBG-Game V.1</h1>
     <div>
-    <img id="cor" class="cora" style="display: block" src="cora.png" />
+      <img id="cor" class="cora" style="display: block" src="cora.png" />
       <li id="vidas" class="life">3</li>
       <li id="level" class="level">Level: 1</li>
     </div>
     <div>
-    <button id="reset" class="reset" onclick ="this.blur();" style="display: block"></button>
-      <button id="pause" class="pausar" onclick="this.blur();"style="display: block"></button>
+      <button
+        id="reset"
+        class="reset"
+        onclick="this.blur();"
+        style="display: block"
+      ></button>
+      <button
+        id="pause"
+        class="pausar"
+        onclick="this.blur();"
+        style="display: block"
+      ></button>
     </div>
-    
 
     <div class="Mensaje-Final" id="MensajeFinal" style="display: none">
       <div>Texto ejemplo</div>
     </div>
+    <div>
+      <img id="load" class="load" src="loading.gif" style="display: none" />
+    </div>
 
     <script>
-      runGame(GAME_LEVELS, DOMDisplay);
+      setTimeout(() => {
+        runGame(GAME_LEVELS, DOMDisplay);
+      }, 5000);
     </script>
   </div>
 </body>

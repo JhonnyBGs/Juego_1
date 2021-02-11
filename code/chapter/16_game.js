@@ -11,10 +11,11 @@ var simpleLevelPlan = `
 
 
 
+
 async function runGame ( plans, Display )
 {
-  document.getElementById("reset").addEventListener("click", () => { document.location.reload(); })
-    document.getElementById("pause").addEventListener("click", () => { this.paused; })
+    document.getElementById("reset").addEventListener("click", () => { document.location.reload(); })
+    document.getElementById("pause").addEventListener("click", (pause) )
     this.livesView = document.getElementById("lives");
     this.levelView = document.getElementById("level");
   let lives = 3;
@@ -26,7 +27,9 @@ async function runGame ( plans, Display )
       Display);
     if (status == "won") {
       level++;
+      lives++;
       this.levelview.innerHTML = "LEVEL: "+(level+1);
+      this.livesView.innerHTML =  + lives;
     } else {
       lives--;
       console.log(lives)
@@ -38,6 +41,7 @@ async function runGame ( plans, Display )
   this.mensajefinal = document.getElementById("MensajeFinal");
   console.log(this.mensajefinal)
   this.cora = document.getElementById( "cor" );
+  this.loadview = document.getElementById("load");
   
   if (lives > 0) {
     console.log( "You Win!" );
@@ -48,6 +52,7 @@ async function runGame ( plans, Display )
     this.titul.style.display = "none";
     this.butonpauseview.style.display = "none";
     this.butonreload.style.display = "none";
+    this.load.style.display = "block";
     this.mensajefinal.innerHTML = "You Win!";
     
     setTimeout(() => {
@@ -63,16 +68,20 @@ async function runGame ( plans, Display )
     this.titul.style.display = "none";
     this.butonpauseview.style.display = "none";
     this.butonreload.style.display = "none";
+    this.load.style.display = "block";
     this.mensajefinal.innerHTML = "You Dead!";
     setTimeout(() => {
       document.location.reload();
     } , 5000);
   }
-  document.getElementById("reset").addEventListener("click", () => { document.location.reload(); })
-  document.getElementById("pause").addEventListener("click", () => { this.paused; })
   this.livesView = document.getElementById("lives");
   this.levelView = document.getElementById("level");
+}
 
+function pause() {
+  let event = new Event("keydown");
+  event.key = "Escape";
+  window.dispatchEvent(event);
 }
 
 
@@ -137,7 +146,7 @@ var Player = class Player {
   }
 }
 
-Player.prototype.size = new Vec(1.8, 1.8);
+Player.prototype.size = new Vec(1.9, 3.0);
 
 var Lava = class Lava {
   constructor(pos, speed, reset) {
@@ -395,11 +404,32 @@ function runAnimation(frameFunc) {
 }
 
 function runLevel(level, Display) {
+
   let display = new Display(document.getElementById("wgame"), level);
   let state = State.start(level);
   let ending = 1;
+  let pausa = "start";
+
   return new Promise(resolve => {
-    runAnimation(time => {
+    function escHandler(event) {
+      if (event.key != "Escape") return;
+      event.preventDefault();
+      if (pausa == "stop") {
+        pausa = "start";
+        runAnimation(frame);
+      } else if (pausa == "start") {
+        pausa = "stop";
+      } else {
+        pausa = "start"
+      }
+    }
+    window, addEventListener("keydown", escHandler);
+    let arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
+
+    function frame(time) {
+      if (pausa == "stop") {
+        return false;
+      }
       state = state.update(time, arrowKeys);
       display.syncState(state);
       if (state.status == "playing") {
@@ -409,10 +439,13 @@ function runLevel(level, Display) {
         return true;
       } else {
         display.clear();
+        window.removeEventListener("keydown", escHandler);
         resolve(state.status);
         return false;
       }
-    });
+    }
+    runAnimation(frame);
   });
-}
+};
+
 
