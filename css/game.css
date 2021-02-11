@@ -1,0 +1,141 @@
+.background {
+  background-image: url(blackdragon.jpg);
+  background-repeat: no-repeat;
+  background-position: auto;
+  background-size: cover;
+  height: 2%;
+  width: 2%;
+  max-width: 5%;
+  max-height: 500px;
+  position: relative;
+  border-spacing: 0;
+}
+.background td {
+  padding: 200;
+}
+.lava {
+  background-image: url(pinchos.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.wall {
+  background-image: url(ladrillitos.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.actor {
+  position: absolute;
+}
+.coin {
+  background-image: url(dinerovolador.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.player {
+  background-image: url(snowmangif.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 20px;
+  width: auto;
+}
+
+.game {
+  max-height: 100%;
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.lost .player {
+  background-image: url(snowdead.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.won .player {
+  box-shadow: -4px -7px 8px white, 4px -7px 8px white;
+}
+.Mensaje-Final {
+  font-size: 100px;
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  width: 60%;
+  height: 40%;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 250px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  line-height: 40%;
+}
+.life {
+  list-style-type: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  color: bisque;
+  text-align-last: top;
+  z-index: 10;
+  position: absolute;
+  text-align: left;
+  left: 35px;
+  margin-top: 10px;
+}
+
+.cora {
+  max-height: 50px;
+  max-width: 50px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  
+}
+.level{
+   list-style-type: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  color: bisque;
+  z-index: 10;
+  position: absolute;
+  text-align: left;
+  padding-left: 10px;
+  margin-top: 35px;
+}
+.titulo{
+   list-style-type: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  color: bisque;
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin-top: 40px;
+}
+.wgame{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: -2;
+}
+.vsc-initialized{
+  top:1px;
+}
+.reset{
+  right: 100px;
+  left: 200px;
+
+}
+.pausar{
+
+}

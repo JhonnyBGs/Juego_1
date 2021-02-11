@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<script src="code/chapter/16_game.js"></script>
+<script src="code/levels.js"></script>
+
+<link rel="stylesheet" href="css/game.css" />
+
+<body>
+  <div class="wgame" id="wgame">
+  <h1 class="titulo" id="titul" style="display: block">JBG-Game V.1</h1>
+    <img id="cor" class="cora" style="display: block" src="cora.png" />
+
+
+      <li id="vidas" class="life">3</li>
+      <li id="level" class="level">Level: 1</li>
+      
+    
+
+    <div class="Mensaje-Final" id="MensajeFinal" style="display: none">
+      <div>Texto ejemplo</div>
+    </div>
+
+    <script>
+      runGame(GAME_LEVELS, DOMDisplay);
+    </script>
+  </div>
+</body>
